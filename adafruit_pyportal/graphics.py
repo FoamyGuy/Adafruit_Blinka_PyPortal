@@ -49,7 +49,7 @@ class Graphics(GraphicsBase):
         if display is None:
             if DISPLAY_ARG_REQUIRED:
                 raise RuntimeError("Display must be provided on platforms without board.")
-            display_bus = displayio.FourWire(spi, command=board.D25, chip_select=board.CE0)
+            display_bus = fourwire.FourWire(spi, command=board.D25, chip_select=board.CE0)
             display = adafruit_ili9341.ILI9341(
                 display_bus, width=320, height=240, backlight_pin=board.D18
             )
